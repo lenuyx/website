@@ -1,0 +1,252 @@
+:root {
+  --blue-dark: #0A2A43;
+  /*--blue-medium: #12395C;*/
+  --blue-medium: #16446E;
+  --orange: #E67E22; /* CTA only */
+  --gray-dark: #2F2F2F;
+  --beige-light: #F7F3EC;
+  --radius: 14px;
+  --max-width: 1400px;
+  --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: var(--beige-light);
+  color: var(--gray-dark);
+  line-height: 1.7;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+h1 {
+  font-size: 42px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--blue-dark);
+}
+
+h3 {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--beige-light);
+  margin-bottom: 12px;
+}
+
+
+p {
+  margin-top: 0;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+/* HEADER */
+header {
+  background: var(--blue-dark);
+  padding: 20px 0;
+}
+
+.header-inner img {
+  max-width: 50%;
+  height: auto;
+}
+
+@media (max-width: 600px) {
+  .header-inner img {
+    max-width: 100%;
+  }
+}
+
+/* HERO */
+.hero-section {
+  background: var(--beige-light);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background: #ccc;
+  box-shadow: var(--shadow-soft);
+  margin-left: auto;
+}
+
+.hero-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-photo {
+    width: 60%;
+    margin: 0 auto;
+  }
+}
+
+/* LEISTUNGEN */
+.leistungen-section {
+  background: var(--gray-dark);
+  color: white;
+}
+
+.service-block {
+  background: var(--blue-medium);
+  padding: 24px 24px 24px 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  margin-bottom: 32px;
+  color: var(--beige-light);
+}
+.service-block h3 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  font-weight: 700;
+  color: var(--beige-light);
+  margin-top: 0;
+}
+
+.service-block p strong {
+  color: var(--beige-light);
+  font-weight: 600;
+}
+
+.compass-box {
+  background: var(--beige-light);
+  color: var(--gray-dark);
+  padding: 24px;
+  border-radius: var(--radius);
+  margin-top: 24px;
+}
+
+.compass-box p strong {
+  color: var(--gray-dark);
+}
+
+.compass-box ul {
+  margin: 10px 0 12px;
+  padding-left: 20px;
+}
+
+/* ÜBER MICH */
+.about-section {
+  background: var(--beige-light);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.about-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: #ccc;
+  box-shadow: var(--shadow-soft);
+}
+
+.about-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* KONTAKT */
+.kontakt-section {
+  background: var(--blue-dark);
+  color: var(--beige-light);
+}
+.kontakt-section h2 {
+  color: var(--beige-light);
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: 32px;
+}
+
+
+form {
+  background: var(--beige-light);
+  padding: 24px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  border: 1px solid #ddd;
+  color: var(--gray-dark);
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  border: 1px solid #bbb;
+  font: inherit;
+  background: var(--beige-light);
+  margin-bottom: 14px;
+}
+
+button {
+  background: var(--orange);
+  color: white;
+  padding: 12px 22px;
+  border: none;
+  border-radius: var(--radius);
+  font-size: 15px;
+  cursor: pointer;
+  font-weight: 600;
+  min-height: 44px;
+}
+
+footer {
+  background: var(--blue-dark);
+  color: var(--beige-light);
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+}
+footer a {
+  color: var(--beige-light);
+  text-decoration: none;
+  margin: 0 6px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.datenschutz-section h3 {
+  color: var(--blue-dark);
+}
