@@ -293,5 +293,41 @@ a[href^="tel:"] {
   color: inherit !important;
 }
 
+/* Button für die Handlungsaufforderung */
+.btn {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 28px;
+  background: var(--orange);
+  color: var(--blue-dark);
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+}
+
+.btn:hover,
+.btn:focus {
+  filter: brightness(1.08);
+}
+
+/* Überschriften in den hellen Kästen */
+.compass-box h2 {
+  margin-top: 0;
+}
+
+/* E-Mail-Link im dunklen Kontaktbereich lesbar halten */
+.kontakt-section a {
+  color: inherit;
+}
+
+@media (max-width: 900px) {
+  .btn {
+    font-size: 16px;
+  }
+}
+
+
 
 
