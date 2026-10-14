@@ -8,6 +8,7 @@
   --radius: 14px;
   --max-width: 1400px;
   --shadow-soft: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --text-width: 75ch; /* angenehme Zeilenlänge für Fließtext */
 }
 
 /* General Elements */
@@ -62,7 +63,7 @@ p {
 	}
 
 	h3 {
-	  font-size: 20px;´
+	  font-size: 20px;
 	}
 
 	p {
@@ -78,6 +79,12 @@ p {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 40px;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 0 20px;
+  }
 }
 
 
@@ -111,9 +118,24 @@ header {
   align-items: center;
 }
 
+.hero-sub {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.4;
+  color: var(--blue-dark);
+  margin-bottom: 20px;
+}
+
+.hero-claim {
+  font-weight: 700;
+  color: var(--blue-medium);
+}
+
+/* Foto bleibt bei jeder Fensterbreite ein Kreis */
 .hero-photo {
   width: 100%;
-  height: 100%;
+  max-width: 520px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   overflow: hidden;
   background: #ccc;
@@ -122,6 +144,7 @@ header {
 }
 
 .hero-photo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -131,8 +154,11 @@ header {
 @media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
-    text-align: center;
     gap: 32px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
   }
 
   .hero-photo {
@@ -142,10 +168,67 @@ header {
 }
 
 
+/* TYPISCHE ANLÄSSE (oberer Teil des dunklen Blocks) */
+.anlaesse-section {
+  background: var(--gray-dark);
+  color: var(--beige-light);
+  padding-bottom: 0;
+}
+
+.anlaesse-section h2 {
+  color: var(--beige-light);
+  margin-top: 0;
+}
+
+.anlaesse-grid {
+  list-style: none;
+  margin: 24px 0 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.anlaesse-grid li {
+  background: var(--beige-light);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--blue-dark);
+}
+
+.anlaesse-hinweis {
+  margin-top: 24px;
+}
+
+.anlaesse-hinweis a {
+  color: var(--beige-light);
+  font-weight: 600;
+}
+
+@media (max-width: 900px) {
+  .anlaesse-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .anlaesse-grid li {
+    font-size: 16px;
+    padding: 16px 18px;
+  }
+}
+
+
 /* LEISTUNGEN */
 .leistungen-section {
   background: var(--gray-dark);
   color: white;
+}
+
+.leistungen-section > .container > h2 {
+  color: var(--beige-light);
+  margin-top: 0;
 }
 
 .service-block {
@@ -164,6 +247,8 @@ header {
   margin-top: 0;
 }
 
+
+
 .service-block p strong {
   color: var(--beige-light);
   font-weight: 600;
@@ -177,6 +262,14 @@ header {
   margin-top: 24px;
 }
 
+/* Unterüberschrift im Kasten: kleiner als die Abschnittsüberschrift */
+.compass-box h4 {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--blue-dark);
+  margin: 0 0 16px;
+}
+
 .compass-box p strong {
   color: var(--gray-dark);
 }
@@ -184,6 +277,10 @@ header {
 .compass-box ul {
   margin: 10px 0 12px;
   padding-left: 20px;
+}
+
+.service-block:last-child {
+  margin-bottom: 0;
 }
 
 
@@ -195,6 +292,12 @@ header {
   .service-block {
     padding: 20px;
     margin-bottom: 24px;
+  }
+  .compass-box {
+    padding: 18px;
+  }
+  .compass-box h4 {
+    font-size: 18px;
   }
 }
 
@@ -220,6 +323,7 @@ header {
 }
 
 .about-photo img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -228,7 +332,6 @@ header {
 @media (max-width: 900px) {
   .about-grid {
     grid-template-columns: 1fr;
-    text-align: center;
     gap: 32px;
   }
 
@@ -236,10 +339,6 @@ header {
     width: 70%;
     height: auto;
     margin: 0 auto;
-  }
-
-  .about-section h2 {
-    text-align: center;
   }
 }
 
@@ -252,12 +351,66 @@ header {
 }
 .kontakt-section h2 {
   color: var(--beige-light);
+  margin-top: 0;
 }
 
-.contact-grid {
+.kontakt-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 32px;
+  grid-template-columns: 3fr 2fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.kontakt-box {
+  background: var(--blue-medium);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  padding: 28px 32px;
+}
+
+.kontakt-label {
+  margin-bottom: 4px;
+}
+
+a.kontakt-phone {
+  font-size: 34px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Anruf-Button nur auf dem Handy */
+.kontakt-call {
+  display: none;
+}
+
+a.btn.btn-call {
+  color: var(--blue-dark) !important;
+}
+
+@media (max-width: 900px) {
+  .kontakt-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .kontakt-box {
+    padding: 20px;
+  }
+
+  a.kontakt-phone {
+    font-size: 26px;
+  }
+
+  .kontakt-call {
+    display: block;
+    margin-bottom: 16px;
+  }
+
+  .kontakt-call .btn {
+    display: block;
+    text-align: center;
+  }
 }
 
 
@@ -312,11 +465,6 @@ a[href^="tel:"] {
   filter: brightness(1.08);
 }
 
-/* Überschriften in den hellen Kästen */
-.compass-box h2 {
-  margin-top: 0;
-}
-
 /* E-Mail-Link im dunklen Kontaktbereich lesbar halten */
 .kontakt-section a {
   color: inherit;
@@ -327,7 +475,3 @@ a[href^="tel:"] {
     font-size: 16px;
   }
 }
-
-
-
-
